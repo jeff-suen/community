@@ -1,0 +1,41 @@
+# ServerProperties
+server:
+  port: 8080
+  servlet:
+    context-path: /community
+
+
+spring:
+  application:
+    name: community
+  thymeleaf:
+    cache: false
+    # prefix: classpath:/templates/site/
+    # suffix: .html
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/community?useSSL=false&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: Root@123
+ 
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 5
+      idle-timeout: 30000
+
+# MyBatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.around.community.entity
+  configuration:
+    use-generated-keys: true
+    map-underscore-to-camel-case: true
+
+# logger
+logging:
+  level:
+    com:
+      around:
+        community: debug
+  file:
+    name: /Users/jefferysun/Desktop/Java/proj/community/community.log
